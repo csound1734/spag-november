@@ -102,10 +102,15 @@ xout S1,S2,S3,Safter3
 
  opcode retimeSk, S, SkO
 Sin, kinstr, kbeat xin
+starthere:
 Sxx, S2, S3, S4 p1p2p3Si Sin
-S1 sprintfk "i%d", kinstr
 ip2 strtod S2
 ip3 strtod S3
+rireturn
+if changed2:k(Sin)==1 then
+        reinit starthere
+endif
+S1 sprintfk "i%d", kinstr
 Snew sprintfk "%s %f %f %s", S1, ip2*kbeat, ip3*kbeat, S4
 xout Snew
  endop
