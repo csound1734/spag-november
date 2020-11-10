@@ -85,17 +85,18 @@ schedkwhen ktrig, 0, 1000, kinstrno, 0, kres1, kres2
 xout k(0)
  endop
 
+
  opcode p1p2p3Sk, SSSS, S
-S_in_k xin
+S_ink xin
 klen strlenk S_ink
 k1 strindexk S_ink, " "
-S1 strsubk S_ink, 0, k1, klen
+S1 strsubk S_ink, 0, k1
 S2 strsubk S_ink, k1+1, klen
-k1 strindexk S2, " "
-S3 strsubk S2, 0, k2, klen
+k2 strindexk S2, " "
+S3 strsubk S2, 0, k2
 S4 strsubk S2, k2+1, klen
 k3 strindexk S4, " "
-S5 strsubk S4, 0, k3, klen
+S5 strsubk S4, 0, k3
 S6 strsubk S4, k3+1, klen
 S_p1 = S1
 S_p2 = S3
@@ -103,9 +104,9 @@ S_p3 = S5
 xout S_p1, S_p2, S_p3, S6
  endop 
 
- opcode retimeSk, S, SkP
-S_ink, kinstr, kbeat xin ;defaults: 
-;(na)  (na)    1.0 
+ opcode retimeSk, S, SkPO
+S_ink, kinstr, kbeat, ktrig xin ;defaults: 
+;(na)  (na)    1.0   0.0
 Sxx, Sp2, Sp3, S4 p1p2p3Sk S_ink
 kp2 strtodk Sp2
 kp3 strtodk Sp3
@@ -118,6 +119,3 @@ Snew strcatk Snew, Sp3n
 Snew strcatk Snew, S4
 xout Snew
  endop
- 
- 
-
