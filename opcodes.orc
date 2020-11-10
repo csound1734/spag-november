@@ -87,22 +87,19 @@ xout k(0)
 
 
  opcode p1p2p3Sk, SSSS, S
-S_ink xin
-klen strlenk S_ink
-k1 strindexk S_ink, " "
-S1 strsubk S_ink, 0, k1
-S2 strsubk S_ink, k1+1, klen
-k2 strindexk S2, " "
-S3 strsubk S2, 0, k2
-S4 strsubk S2, k2+1, klen
-k3 strindexk S4, " "
-S5 strsubk S4, 0, k3
-S6 strsubk S4, k3+1, klen
-S_p1 = S1
-S_p2 = S3
-S_p3 = S5
-xout S_p1, S_p2, S_p3, S6
- endop 
+Sin xin
+klen strlenk Sin
+k1 strindexk Sin, " "
+S1 strsubk Sin, 0, k1
+Safter1 strsubk Sin, k1+1, klen
+k2 strindexk Safter1, " "
+S2 strsubk Safter1, 0, k2
+Safter2 strsubk Safter1, k2+1, klen
+k3 strindexk Safter2, " "
+S3 strsubk Safter2, 0, k3
+Safter3 strsubk Safter2, k3+1, klen
+xout S1,S2,S3,Safter3
+ endop
 
  opcode retimeSk, S, SkPO
 S_ink, kinstr, kbeat, ktrig xin ;defaults: 
